@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multitool
+spec:
+  selector:
+    matchLabels:
+      app: kub-5
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kub-5 
+    spec:
+      containers:
+      - name: multitool
+        image: wbitt/network-multitool
+        ports:
+        - containerPort: 8080
+        env: 
+          - name: HTTP_PORT
+            value: "1180"       

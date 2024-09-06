@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  selector:
+    matchLabels:
+      app: app-kub-5
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: app-kub-5
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.25.4
+        ports:
+        - containerPort: 80
+        env:
+          - name: HTTP_PORT
+            value: "443"

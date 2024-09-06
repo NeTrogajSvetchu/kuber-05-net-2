@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-back
+  namespace: kub-5
+spec:
+  ports:
+    - name: multitool
+      port: 9118
+      targetPort: 1180
+  selector:
+    app: kub-5
